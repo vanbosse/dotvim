@@ -2,6 +2,11 @@
 
 set nocompatible		" use Vim defaults.
 
+" ----- Pathogen -----
+
+call pathogen#infect()	" Pathogen must be called before filetype detection.
+filetype plugin indent on
+
 " ----- Text formatting -----
 
 set autoindent			" automatic indent new lines.
