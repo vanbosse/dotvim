@@ -80,6 +80,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " on save, remove trailing spaces.
 autocmd BufWritePre * :%s/\s\+$//e
 
+" custom statusline
+set statusline=%<%f\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
+
 " ----- Abbreviations -----
 
 ab sd Spoon::dump(
