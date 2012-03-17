@@ -90,7 +90,3 @@ set statusline=%<%f\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{str
 
 " Tell snipmate where to get our snippets
 let g:snippets_dir = "~/.vim/snippets"
-
-" ----- Abbreviations -----
-
-ab sd Spoon::dump(
