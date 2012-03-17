@@ -86,6 +86,11 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " custom statusline
 set statusline=%<%f\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
 
+" ----- Plugins -----
+
+" Tell snipmate where to get our snippets
+let g:snippets_dir = "~/.vim/snippets"
+
 " ----- Abbreviations -----
 
 ab sd Spoon::dump(
