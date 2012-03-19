@@ -84,7 +84,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " custom statusline
-set statusline=%<%f\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
+set statusline=%<%f\ %m%r\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
 
 " .tpl files are mainly (x)html files, xhtml gives better omni completion.
 autocmd BufNewFile,BufRead *.tpl set filetype=xhtml
