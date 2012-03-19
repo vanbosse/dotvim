@@ -80,11 +80,14 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " on save, remove trailing spaces.
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Do not pollute the working directory with swap and other files
+" Do not pollute the working directory with swap and other files.
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " custom statusline
 set statusline=%<%f\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
+
+" .tpl files are mainly (x)html files, xhtml gives better omni completion.
+autocmd BufNewFile,BufRead *.tpl set filetype=xhtml
 
 " ----- Plugins -----
 
