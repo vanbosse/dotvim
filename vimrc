@@ -56,7 +56,7 @@ set incsearch			" do incremental search.
 " ----- Syntax and such -----
 
 syntax on				" enable syntax highlighting.
-color zenburn			" use zenburn colorscheme.
+color twilight256		" use zenburn colorscheme.
 set synmaxcol=512		" try highlighting maximum 512 columns.
 
 " ----- Formatting -----
