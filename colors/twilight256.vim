@@ -299,4 +299,5 @@ endif
 
 " vim: set fdl=0 fdm=marker:
 
-highlight CursorLine cterm=NONE ctermbg=235 ctermfg=none
+highlight CursorLine cterm=none ctermbg=235 ctermfg=none
+highlight TabLineFill cterm=none ctermbg=242 ctermfg=none
