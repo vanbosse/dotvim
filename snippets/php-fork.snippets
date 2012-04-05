@@ -3,3 +3,237 @@ snippet sd
 	Spoon::dump(${1:variable});
 snippet sda
 	Spoon::dump(array(${1:variable}));
+snippet fbc
+	/**
+	 * Config file for the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Config extends BackendBaseConfig
+	{
+		protected $defaultAction = 'index';
+		protected $disabledActions = array();
+	}
+snippet fba
+	/**
+	 * Backend add action for the $1 module.
+	 * It will display a form, validate it when posted and update the model when
+	 * the form is valid.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Add extends BackendBaseActionAdd
+	{
+		public function execute()
+		{
+			parent::execute();
+			$this->loadForm();
+			$this->processForm();
+			$this->parse();
+			$this->display();
+		}
+
+		protected function loadForm()
+		{
+			$this->frm = new BackendForm('add');
+		}
+
+		protected function parse()
+		{
+			$this->frm->parse($this->tpl);
+		}
+
+		protected function processForm()
+		{
+			if($this->frm->isSubmitted())
+			{
+				$this->frm->cleanupFields();
+				$fields = $this->frm->getFields();
+
+				if($this->frm->isCorrect())
+				{
+					${3:variable} = array(
+
+					);
+
+					$3['id'] = Backend$1Model::insert($3);
+
+					$this->redirect(
+						BackendModel::createURLForAction('index')
+							. '&report=added'
+							. '&hightlight=row-' . $3['id']
+					);
+				}
+			}
+		}
+	}
+snippet fbe
+	/**
+	 * Backend edit action for the $1 module.
+	 * It will display a form, validate it when posted and update the model when
+	 * the form is valid.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Edit extends BackendBaseActionEdit
+	{
+		public function execute()
+		{
+			parent::execute();
+			$this->loadData();
+			$this->loadForm();
+			$this->processForm();
+			$this->parse();
+			$this->display();
+		}
+
+		protected function loadData()
+		{
+			$this->id = $this->getParameter('id', 'int', 0);
+			if($this->id == 0 || !Backend$1Model::exists($this->id))
+			{
+				$this->redirect(
+					BackendModel::createURLForAction('index')
+					. '&error=non-existing'
+				);
+			}
+			$this->record = Backend$1Model::get($this->id);
+		}
+
+		protected function loadForm()
+		{
+			$this->frm = new BackendForm('edit');
+		}
+
+		protected function parse()
+		{
+			$this->frm->parse($this->tpl);
+			$this->tpl->assign('item', $this->record);
+		}
+
+		protected function processForm()
+		{
+			if($this->frm->isSubmitted())
+			{
+				$this->frm->cleanupFields();
+				$fields = $this->frm->getFields();
+
+				if($this->frm->isCorrect())
+				{
+					${3:variable} = array(
+
+					);
+
+					Backend$1Model::update($this->id, $3);
+
+					$this->redirect(
+						BackendModel::createURLForAction('index')
+							. '&report=edited'
+							. '&hightlight=row-' . $this->id
+					);
+				}
+			}
+		}
+	}
+snippet fbd
+	/**
+	 * Delete action for the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Delete extends BackendBaseActionDelete
+	{
+		public function execute()
+		{
+			parent::execute();
+			$id = $this->getParameter('id', 'int', 0);
+
+			if($id == 0 || !Backend$1Model::exists($id))
+			{
+				$this->redirect(
+					BackendModel::createURLForAction('index')
+					. '&error=non-existing'
+				);
+			}
+
+			Backend$1Model::delete($id);
+
+			$this->redirect(
+				BackendModel::createURLForAction('index')
+				. '&report=deleted'
+			);
+		}
+	}
+snippet fbm
+	/**
+	 * Generic function related to the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Model
+	{
+		/**
+		 * Delete a $3.
+		 *
+		 * @param int $id
+		 */
+		public static function delete($id)
+		{
+			BackendModel::getDB(true)->delete('$4', 'id = ?', (int) $id);
+		}
+
+		/**
+		 * Checks if a $3 exists.
+		 *
+		 * @param int $id
+		 * @return bool
+		 */
+		public static function exists($id)
+		{
+			return (bool) BackendModel::getDB()->getVar(
+				'SELECT COUNT(i.id)
+				 FROM $4 AS i
+				 WHERE i.id = ?',
+				array((int) $id)
+			);
+		}
+
+		/**
+		 * Get a $3.
+		 *
+		 * @param int $id
+		 * @return array
+		 */
+		public static function get($id)
+		{
+			return (array) BackendModel::getDB()->getRecord(
+				'SELECT i.*
+				 FROM $4 AS i
+				 WHERE i.id = ?',
+				array((int) $id)
+			);
+		}
+
+		/**
+		 * Insert a $3.
+		 *
+		 * @param array $$3
+		 * @return int
+		 */
+		public static function insert(array $${3:var})
+		{
+			return (int) BackendModel::getDB(true)->insert('${4:table}', $$3);
+		}
+
+		/**
+		 * Update a $3.
+		 *
+		 * @param int $id
+		 * @param array $$3
+		 * @return int
+		 */
+		public static function update($id, array $$3)
+		{
+			BackendModel::getDB(true)->update('$4', $$3, 'id = ?', (int) $id);
+		}
+	}
