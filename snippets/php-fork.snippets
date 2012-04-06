@@ -237,3 +237,52 @@ snippet fbm
 			BackendModel::getDB(true)->update('$4', $$3, 'id = ?', (int) $id);
 		}
 	}
+snippet fbi
+	/**
+	 * Displays an overview of items in the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Backend${1:Module}Index extends BackendBaseActionIndex
+	{
+		/**
+		 * The datagrid.
+		 *
+		 * @var BackendDataGrid
+		 */
+		private $${3:dg$1};
+
+		public function execute()
+		{
+			parent::execute();
+			$this->loadDataGrid();
+			$this->parse();
+			$this->display();
+		}
+
+		protected function loadDataGrid()
+		{
+			$this->$3 = new BackendDataGridDB(Backend$1Model::QRY_BROWSE_DATAGRID);
+			$this->$3->addColumn(
+				'edit',
+				null,
+				BL::lbl('Edit'),
+				BackendModel::createURLForAction('edit') . '&amp;id=[id]',
+				BL::lbl('Edit')
+			);
+			$this->$3->setColumnURL(
+				'title',
+				BackendModel::createURLForAction('edit') . '&amp;id=[id]'
+			);
+		}
+
+		protected function parse()
+		{
+			$this->tpl->assign(
+				'$3',
+				$this->$3->getNumResults() > 0
+					? $this->$3->getContent()
+					: false
+			);
+		}
+	}
