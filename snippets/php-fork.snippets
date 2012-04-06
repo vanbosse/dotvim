@@ -297,3 +297,40 @@ snippet ffc
 		protected $defaultAction = 'index';
 		protected $disabledActions = array();
 	}
+snippet ffm
+	/**
+	 * Generic function related to the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Frontend${1:Module}Model
+	{
+		/**
+		 * Get a ${4:item}.
+		 *
+		 * @param int $id
+		 * @return array
+		 */
+		public static function get($id)
+		{
+			return (array) FrontendModel::getDB()->getRecord(
+				'SELECT i.*
+				 FROM ${3:table} AS i
+				 WHERE i.id = ?',
+				array((int) $id)
+			);
+		}
+
+		/**
+		 * Get all $4s.
+		 *
+		 * @return array
+		 */
+		public static function getAll()
+		{
+			return (array) FrontendModel::getDB()->getRecords(
+				'SELECT i.*
+				 FROM $3 AS i'
+			);
+		}
+	}
