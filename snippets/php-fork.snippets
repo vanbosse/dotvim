@@ -286,3 +286,14 @@ snippet fbi
 			);
 		}
 	}
+snippet ffc
+	/**
+	 * Config file for the $1 module.
+	 *
+	 * @author ${2:author}
+	 */
+	class Frontend${1:Module}Config extends FrontendBaseConfig
+	{
+		protected $defaultAction = 'index';
+		protected $disabledActions = array();
+	}
