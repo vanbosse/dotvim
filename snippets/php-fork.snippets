@@ -334,3 +334,34 @@ snippet ffm
 			);
 		}
 	}
+snippet ffw
+	/**
+	 * The $2 widget.
+	 *
+	 * @author ${3:author}
+	 */
+	class Frontend${1:Module}Widget${2:Widget} extends FrontendBaseWidget
+	{
+		/**
+		 * @var ${6:var}
+		 */
+		private $5;
+
+		public function execute()
+		{
+			parent::execute();
+			$this->loadTemplate();
+			$this->loadData();
+			$this->parse();
+		}
+
+		protected function loadData()
+		{
+			$this->$5 = Frontend$1Model::${7:function}();
+		}
+
+		protected function parse()
+		{
+			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+		}
+	}
