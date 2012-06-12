@@ -1,4 +1,6 @@
-Installation:
+# Readme
+
+Clone repository:
 
 	git clone git://github.com/Vanbosse/dotvim.git ~/.vim
 
