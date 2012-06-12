@@ -47,6 +47,12 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" no more arroww my dear.
+vnoremap <up> <nop>
+vnoremap <down> <nop>
+vnoremap <left> <nop>
+vnoremap <right> <nop>
+
 " ----- Searching -----
 
 set ignorecase			" no case sensitivity please.
