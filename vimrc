@@ -47,7 +47,7 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" no more arroww my dear.
+" no more arrows my dear.
 vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
