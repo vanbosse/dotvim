@@ -76,6 +76,7 @@ set encoding=utf-8		" force UTF-8 encoding.
 map <F7> :set hlsearch!<CR>
 
 " ----- Remapping -----
+
 inoremap jj <ESC>		" leave insert mode with 'jj'
 
 " ----- Chromed out, pimped out -----
