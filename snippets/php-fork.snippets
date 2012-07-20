@@ -365,3 +365,96 @@ snippet ffw
 			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
 		}
 	}
+snippet ffi
+	/**
+	 * The $1 overview.
+	 *
+	 * @author ${3:author}
+	 */
+	class Frontend${1:Module}Index extends FrontendBaseBlock
+	{
+		/**
+		 * @var ${6:var}
+		 */
+		private $5;
+
+		public function execute()
+		{
+			parent::execute();
+			$this->loadTemplate();
+			$this->loadData();
+			$this->parse();
+		}
+
+		protected function loadData()
+		{
+			$this->$5 = Frontend$1Model::${7:function}();
+		}
+
+		protected function parse()
+		{
+			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+		}
+	}
+snippet ffd
+	/**
+	 * The $1 detail.
+	 *
+	 * @author ${3:author}
+	 */
+	class Frontend${1:Module}Detail extends FrontendBaseBlock
+	{
+		/**
+		 * @var ${6:var}
+		 */
+		private $5;
+
+		public function execute()
+		{
+			parent::execute();
+			$this->loadTemplate();
+			$this->loadData();
+			$this->parse();
+		}
+
+		protected function loadData()
+		{
+			$this->$5 = Frontend$1Model::${7:function}();
+		}
+
+		protected function parse()
+		{
+			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+		}
+	}
+snippet ffx
+	/**
+	 * ${3:docblock}
+	 *
+	 * @author ${4:author}
+	 */
+	class Frontend${1:Module}${2:Action} extends FrontendBaseBlock
+	{
+		/**
+		 * @var ${7:var}
+		 */
+		private $6;
+
+		public function execute()
+		{
+			parent::execute();
+			$this->loadTemplate();
+			$this->loadData();
+			$this->parse();
+		}
+
+		protected function loadData()
+		{
+			$this->$6 = Frontend$1Model::${8:function}();
+		}
+
+		protected function parse()
+		{
+			$this->tpl->assign('${5:Entity}', $this->${6:Variable});
+		}
+	}
