@@ -369,14 +369,14 @@ snippet ffi
 	/**
 	 * The $1 overview.
 	 *
-	 * @author ${3:author}
+	 * @author ${2:author}
 	 */
 	class Frontend${1:Module}Index extends FrontendBaseBlock
 	{
 		/**
-		 * @var ${6:var}
+		 * @var ${5:var}
 		 */
-		private $5;
+		private $4;
 
 		public function execute()
 		{
@@ -388,26 +388,26 @@ snippet ffi
 
 		protected function loadData()
 		{
-			$this->$5 = Frontend$1Model::${7:function}();
+			$this->$4 = Frontend$1Model::${6:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+			$this->tpl->assign('${3:Entity}', $this->${4:Variable});
 		}
 	}
 snippet ffd
 	/**
 	 * The $1 detail.
 	 *
-	 * @author ${3:author}
+	 * @author ${2:author}
 	 */
 	class Frontend${1:Module}Detail extends FrontendBaseBlock
 	{
 		/**
-		 * @var ${6:var}
+		 * @var ${5:var}
 		 */
-		private $5;
+		private $4;
 
 		public function execute()
 		{
@@ -419,12 +419,12 @@ snippet ffd
 
 		protected function loadData()
 		{
-			$this->$5 = Frontend$1Model::${7:function}();
+			$this->$4 = Frontend$1Model::${6:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+			$this->tpl->assign('${3:Entity}', $this->${4:Variable});
 		}
 	}
 snippet ffx
