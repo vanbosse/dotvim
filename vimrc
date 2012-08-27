@@ -27,6 +27,7 @@ set showmatch			" highlight matching brackets/showbraces.
 set list				" enable listcharacters.
 set laststatus=2		" show status line.
 set cursorline			" visualize current line.
+set colorcolumn=80		" mark the 80 char column.
 
 " ----- File navigation -----
 
