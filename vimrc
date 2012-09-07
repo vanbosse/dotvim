@@ -76,6 +76,9 @@ set encoding=utf-8		" force UTF-8 encoding.
 " F7 toggles highlighted search.
 map <F7> :set hlsearch!<CR>
 
+" make Y act like D, C, ... (i.e., yank up to the end of the line).
+map Y y$
+
 " ----- Remapping -----
 
 inoremap jj <ESC>		" leave insert mode with 'jj'
