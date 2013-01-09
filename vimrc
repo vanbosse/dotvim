@@ -17,6 +17,7 @@ set nowrap				" do not wrap lines.
 set shiftwidth=4		" use four characters for tabs.
 set softtabstop=4		" mindblowing.
 set tabstop=4			" skullcracking.
+set expandtab			" expand tabs to spaces.
 
 " ----- UI settings -----
 
