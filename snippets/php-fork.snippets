@@ -242,6 +242,13 @@ snippet fbm
 	class Backend${1:Module}Model
 	{
 		/**
+		 * @var string Query to fill the datagrid.
+		 */
+		const QRY_BROWSE_DATAGRID =
+			'SELECT i.*
+			 FROM $4 AS i';
+
+		/**
 		 * Delete a $3.
 		 *
 		 * @param int $id
