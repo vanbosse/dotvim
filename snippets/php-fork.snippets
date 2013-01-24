@@ -558,7 +558,7 @@ snippet ffx
 	/**
 	 * ${3:docblock}
 	 *
-	 * @author ${4:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Frontend${1:Module}${2:Action} extends FrontendBaseBlock
 	{
@@ -582,6 +582,6 @@ snippet ffx
 
 		protected function parse()
 		{
-			$this->tpl->assign('${5:Entity}', $this->${6:Variable});
+			$this->tpl->assign('$6', $this->${6:Variable});
 		}
 	}
