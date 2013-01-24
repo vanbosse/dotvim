@@ -42,6 +42,10 @@ snippet fba
 			$this->frm = new BackendForm('add');
 
 			$this->meta = new BackendMeta($this->frm, null, 'title', true);
+			$this->meta->setUrlCallback(
+				'Backend$1Model',
+				'getURL'
+			);
 		}
 
 		protected function parse()
@@ -61,7 +65,7 @@ snippet fba
 				if($this->frm->isCorrect())
 				{
 					${3:variable} = array(
-
+						'meta_id' => $this->meta->save()
 					);
 
 					$3['id'] = Backend$1Model::insert($3);
