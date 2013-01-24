@@ -237,7 +237,7 @@ snippet fbm
 	/**
 	 * Generic function related to the $1 module.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Backend${1:Module}Model
 	{
@@ -260,7 +260,7 @@ snippet fbm
 		public static function exists($id)
 		{
 			return (bool) BackendModel::getDB()->getVar(
-				'SELECT COUNT(i.id)
+				'SELECT 1
 				 FROM $4 AS i
 				 WHERE i.id = ?',
 				array((int) $id)
@@ -284,6 +284,58 @@ snippet fbm
 		}
 
 		/**
+		 * Retrieve the unique URL for an item
+		 *
+		 * @param string $URL The URL to base on.
+		 * @param int[optional] $id The id of the item to ignore.
+		 * @return string
+		 */
+		public static function getURL($URL, $id = null)
+		{
+			$URL = (string) $URL;
+
+			// get db
+			$db = BackendModel::getDB();
+
+			// new item
+			if($id === null)
+			{
+				// already exists
+				if((bool) $db->getVar(
+					'SELECT 1
+					 FROM $4 AS i
+					 INNER JOIN meta AS m ON i.meta_id = m.id
+					 WHERE i.language = ? AND m.url = ?
+					 LIMIT 1',
+					array(BL::getWorkingLanguage(), $URL)))
+				{
+					$URL = BackendModel::addNumber($URL);
+					return self::getURL($URL);
+				}
+			}
+
+			// current category should be excluded
+			else
+			{
+				// already exists
+				if((bool) $db->getVar(
+					'SELECT 1
+					 FROM $4 AS i
+					 INNER JOIN meta AS m ON i.meta_id = m.id
+					 WHERE i.language = ? AND m.url = ? AND i.id != ?
+					 LIMIT 1',
+					array(BL::getWorkingLanguage(), $URL, $id)))
+				{
+
+					$URL = BackendModel::addNumber($URL);
+					return self::getURL($URL, $id);
+				}
+			}
+
+			return $URL;
+		}
+
+		/**
 		 * Insert a $3.
 		 *
 		 * @param array $$3
@@ -299,7 +351,6 @@ snippet fbm
 		 *
 		 * @param int $id
 		 * @param array $$3
-		 * @return int
 		 */
 		public static function update($id, array $$3)
 		{
