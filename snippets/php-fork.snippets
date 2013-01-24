@@ -527,7 +527,7 @@ snippet ffd
 	/**
 	 * The $1 detail.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Frontend${1:Module}Detail extends FrontendBaseBlock
 	{
@@ -551,7 +551,7 @@ snippet ffd
 
 		protected function parse()
 		{
-			$this->tpl->assign('${3:Entity}', $this->${4:Variable});
+			$this->tpl->assign('$4', $this->${4:Variable});
 		}
 	}
 snippet ffx
