@@ -24,7 +24,7 @@ snippet fba
 	 * It will display a form, validate it when posted and update the model when
 	 * the form is valid.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Backend${1:Module}Add extends BackendBaseActionAdd
 	{
@@ -40,6 +40,8 @@ snippet fba
 		protected function loadForm()
 		{
 			$this->frm = new BackendForm('add');
+
+			$this->meta = new BackendMeta($this->frm, null, 'title', true);
 		}
 
 		protected function parse()
@@ -54,6 +56,8 @@ snippet fba
 				$this->frm->cleanupFields();
 				$fields = $this->frm->getFields();
 
+				$this->meta->validate();
+
 				if($this->frm->isCorrect())
 				{
 					${3:variable} = array(
@@ -61,6 +65,23 @@ snippet fba
 					);
 
 					$3['id'] = Backend$1Model::insert($3);
+
+					BackendModel::triggerEvent(
+						$this->getModule(),
+						'after_add',
+						array(
+							'item' => $3
+						)
+					);
+
+					BackendSearchModel::saveIndex(
+						$this->getModule,
+						$3['id'],
+						array(
+							'title' => $3['title'],
+							'text' => $3['text']
+						)
+					);
 
 					$this->redirect(
 						BackendModel::createURLForAction('index')
