@@ -102,7 +102,7 @@ snippet fbe
 	 * It will display a form, validate it when posted and update the model when
 	 * the form is valid.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Backend${1:Module}Edit extends BackendBaseActionEdit
 	{
@@ -132,6 +132,18 @@ snippet fbe
 		protected function loadForm()
 		{
 			$this->frm = new BackendForm('edit');
+
+			$this->meta = new BackendMeta(
+				$this->frm,
+				$this->record['id'],
+				'title',
+				true
+			);
+			$this->meta->setUrlCallback(
+				'Backend$1Model',
+				'getURL',
+				array($this->record['id'])
+			);
 		}
 
 		protected function parse()
@@ -147,18 +159,37 @@ snippet fbe
 				$this->frm->cleanupFields();
 				$fields = $this->frm->getFields();
 
+				$this->meta->validate();
+
 				if($this->frm->isCorrect())
 				{
 					${3:variable} = array(
-
+						'meta_id' => $this->meta->save()
 					);
 
 					Backend$1Model::update($this->id, $3);
 
+					BackendModel::triggerEvent(
+						$this->getModule(),
+						'after_edit',
+						array(
+							'item' => $3
+						)
+					);
+
+					BackendSearchModel::saveIndex(
+						$this->getModule,
+						$this->id,
+						array(
+							'title' => $3['title'],
+							'text' => $3['text']
+						)
+					);
+
 					$this->redirect(
 						BackendModel::createURLForAction('index')
 							. '&report=edited'
-							. '&hightlight=row-' . $this->id
+							. '&highlight=row-' . $this->id
 					);
 				}
 			}
