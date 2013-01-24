@@ -465,7 +465,7 @@ snippet ffw
 	/**
 	 * The $2 widget.
 	 *
-	 * @author ${3:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Frontend${1:Module}Widget${2:Widget} extends FrontendBaseWidget
 	{
@@ -489,7 +489,7 @@ snippet ffw
 
 		protected function parse()
 		{
-			$this->tpl->assign('${4:Entity}', $this->${5:Variable});
+			$this->tpl->assign('$5', $this->${5:Variable});
 		}
 	}
 snippet ffi
