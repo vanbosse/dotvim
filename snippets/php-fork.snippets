@@ -496,7 +496,7 @@ snippet ffi
 	/**
 	 * The $1 overview.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Frontend${1:Module}Index extends FrontendBaseBlock
 	{
@@ -520,7 +520,7 @@ snippet ffi
 
 		protected function parse()
 		{
-			$this->tpl->assign('${3:Entity}', $this->${4:Variable});
+			$this->tpl->assign('$4', $this->${4:Variable});
 		}
 	}
 snippet ffd
