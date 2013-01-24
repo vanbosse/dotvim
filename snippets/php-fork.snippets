@@ -3,6 +3,10 @@ snippet sd
 	Spoon::dump(${1:variable});
 snippet sda
 	Spoon::dump(array(${1:variable}));
+snippet fdb
+	FrontendModel::getDB()->${1:getRecords}
+snippet bdb
+	BackendModel::getDB()->${1:getRecords}
 snippet fbc
 	/**
 	 * Config file for the $1 module.
