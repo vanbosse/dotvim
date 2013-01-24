@@ -199,7 +199,7 @@ snippet fbd
 	/**
 	 * Delete action for the $1 module.
 	 *
-	 * @author ${2:author}
+	 * @author Jeroen Van den Bossche <${2:email}>
 	 */
 	class Backend${1:Module}Delete extends BackendBaseActionDelete
 	{
@@ -216,7 +216,16 @@ snippet fbd
 				);
 			}
 
+			$record = Backend$1Model::get($id);
 			Backend$1Model::delete($id);
+			BackendSearchModel::removeIndex($this->getModule, $id);
+			BackendModel::triggerEvent(
+				$this->getModule(),
+				'after_delete',
+				array(
+					'item' => $record
+				)
+			);
 
 			$this->redirect(
 				BackendModel::createURLForAction('index')
