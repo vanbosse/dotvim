@@ -29,6 +29,9 @@ set list				" enable listcharacters.
 set laststatus=2		" show status line.
 set cursorline			" visualize current line.
 set colorcolumn=80		" mark the 80 char column.
+set noerrorbells		" disable error bells.
+set visualbell			" disable error bells.
+set t_vb=				" disable error bells.
 
 " ----- File navigation -----
 
