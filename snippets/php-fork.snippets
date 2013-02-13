@@ -465,7 +465,7 @@ snippet ffw
 	/**
 	 * The $2 widget.
 	 *
-	 * @author Jeroen Van den Bossche <${2:email}>
+	 * @author Jeroen Van den Bossche <${3:email}>
 	 */
 	class Frontend${1:Module}Widget${2:Widget} extends FrontendBaseWidget
 	{
@@ -501,9 +501,9 @@ snippet ffi
 	class Frontend${1:Module}Index extends FrontendBaseBlock
 	{
 		/**
-		 * @var ${5:var}
+		 * @var ${4:var}
 		 */
-		private $$4;
+		private $$3;
 
 		public function execute()
 		{
@@ -515,12 +515,12 @@ snippet ffi
 
 		protected function loadData()
 		{
-			$this->$4 = Frontend$1Model::${6:function}();
+			$this->$3 = Frontend$1Model::${5:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('$4', $this->${4:Variable});
+			$this->tpl->assign('$3', $this->${3:Variable});
 		}
 	}
 snippet ffd
@@ -532,9 +532,9 @@ snippet ffd
 	class Frontend${1:Module}Detail extends FrontendBaseBlock
 	{
 		/**
-		 * @var ${5:var}
+		 * @var ${4:var}
 		 */
-		private $$4;
+		private $$3;
 
 		public function execute()
 		{
@@ -546,19 +546,19 @@ snippet ffd
 
 		protected function loadData()
 		{
-			$this->$4 = Frontend$1Model::${6:function}();
+			$this->$3 = Frontend$1Model::${5:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('$4', $this->${4:Variable});
+			$this->tpl->assign('$3', $this->${3:Variable});
 		}
 	}
 snippet ffx
 	/**
 	 * ${3:docblock}
 	 *
-	 * @author Jeroen Van den Bossche <${2:email}>
+	 * @author Jeroen Van den Bossche <${9:email}>
 	 */
 	class Frontend${1:Module}${2:Action} extends FrontendBaseBlock
 	{
