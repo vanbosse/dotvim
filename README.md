@@ -2,7 +2,7 @@
 
 Clone repository:
 
-	git clone git://github.com/Vanbosse/dotvim.git ~/.vim
+	git clone git://github.com/vanbosse/dotvim.git ~/.vim
 
 Create symlinks:
 
