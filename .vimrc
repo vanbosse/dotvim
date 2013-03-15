@@ -17,7 +17,7 @@ set nowrap				" do not wrap lines.
 set shiftwidth=4		" use four characters for tabs.
 set softtabstop=4		" mindblowing.
 set tabstop=4			" skullcracking.
-set expandtab			" expand tabs to spaces.
+set noexpandtab			" expand tabs to spaces.
 
 " ----- UI settings -----
 
@@ -57,6 +57,12 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
+
+" Less finger wrecking window navigation.
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " ----- Searching -----
 
