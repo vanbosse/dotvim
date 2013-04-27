@@ -17,7 +17,7 @@ set nowrap				" do not wrap lines.
 set shiftwidth=4		" use four characters for tabs.
 set softtabstop=4		" mindblowing.
 set tabstop=4			" skullcracking.
-set noexpandtab			" expand tabs to spaces.
+set expandtab			" expand tabs to spaces.
 
 " ----- UI settings -----
 
@@ -115,5 +115,11 @@ autocmd BufNewFile,BufRead *.tpl set filetype=xhtml
 
 " ----- Plugins -----
 
-" Tell snipmate where to get our snippets
+" Tell snipmate where to get our snippets.
 let g:snippets_dir = "~/.vim/snippets"
+
+" CtrlP ignores.
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](\.git|vendor)$',
+    \ 'file': '\v\.(swp)$',
+    \ }
