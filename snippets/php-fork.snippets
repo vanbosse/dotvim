@@ -1,8 +1,4 @@
 # Dump
-snippet sd
-	Spoon::dump(${1:variable});
-snippet sda
-	Spoon::dump(array(${1:variable}));
 snippet fdb
 	FrontendModel::getDB()->${1:getRecords}
 snippet bdb
@@ -470,9 +466,9 @@ snippet ffw
 	class Frontend${1:Module}Widget${2:Widget} extends FrontendBaseWidget
 	{
 		/**
-		 * @var ${6:var}
+		 * @var ${5:var}
 		 */
-		private $$5;
+		private $$4;
 
 		public function execute()
 		{
@@ -484,12 +480,12 @@ snippet ffw
 
 		protected function loadData()
 		{
-			$this->$5 = Frontend$1Model::${7:function}();
+			$this->$4 = Frontend$1Model::${6:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('$5', $this->${5:Variable});
+			$this->tpl->assign('$4', $this->${4:Variable});
 		}
 	}
 snippet ffi
@@ -556,16 +552,16 @@ snippet ffd
 	}
 snippet ffx
 	/**
-	 * ${3:docblock}
+	 * ${4:docblock}
 	 *
-	 * @author Jeroen Van den Bossche <${9:email}>
+	 * @author Jeroen Van den Bossche <${3:email}>
 	 */
 	class Frontend${1:Module}${2:Action} extends FrontendBaseBlock
 	{
 		/**
-		 * @var ${7:var}
+		 * @var ${6:var}
 		 */
-		private $$6;
+		private $$5;
 
 		public function execute()
 		{
@@ -577,11 +573,11 @@ snippet ffx
 
 		protected function loadData()
 		{
-			$this->$6 = Frontend$1Model::${8:function}();
+			$this->$5 = Frontend$1Model::${7:function}();
 		}
 
 		protected function parse()
 		{
-			$this->tpl->assign('$6', $this->${6:Variable});
+			$this->tpl->assign('$5', $this->${5:Variable});
 		}
 	}
