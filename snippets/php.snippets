@@ -6,31 +6,26 @@ snippet func
 	 * @param ${5:param}
 	 * @return ${6:void}
 	 */
-	${1:public} function ${2:name}(${3})
-	{
+	${1:public} function ${2:name}(${3}) {
 		${7:// code}
 	}
 # Conditionals
 snippet if
-	if(${1:true})
-	{
+	if (${1:true}) {
 		${2:// code}
 	}
 snippet else
-	else
-	{
+	else {
 		${1:// code}
 	}
 snippet elseif
-	elseif(${1:true})
-	{
+	elseif (${1:true}) {
 		${2:// code}
 	}
 snippet tern
 	${1:variable} = ${2:condition} ? ${3:true} : ${4:false};
 snippet switch
-	switch(${1:variable})
-	{
+	switch (${1:variable}) {
 		case ${2:case}:
 			${3:// code}
 			break;
@@ -40,30 +35,25 @@ snippet switch
 	}
 # Loops
 snippet foreach
-	foreach(${1:variable} as ${2:value})
-	{
+	foreach (${1:variable} as ${2:value}) {
 		${3:// code}
 	}
 snippet foreachkey
-	foreach(${1:variable} as ${2:$key} => ${3:$value})
-	{
+	foreach (${1:variable} as ${2:$key} => ${3:$value}) {
 		${4:// code}
 	}
 snippet for
-	for($${2:i} = 0; $$2 < ${1:count}; $$2${3:++})
-	{
+	for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
 		${4:// code}
 	}
 snippet while
-	while(${1:true})
-	{
+	while (${1:true}) {
 		${2:// code}
 	}
 snippet do
-	do
-	{
+	do {
 		${2:// code}
-	} while(${1:true})
+	} while (${1:true})
 # Array
 snippet array
 	${1:variable} = array(
