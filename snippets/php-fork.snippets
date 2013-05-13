@@ -1,8 +1,8 @@
 # Dump
 snippet fdb
-	FrontendModel::getDB()->${1:getRecords}
+	FrontendModel::getContainer()->get('database')->${1:getRecords}
 snippet bdb
-	BackendModel::getDB()->${1:getRecords}
+	BackendModel::getContainer()->get('database')->${1:getRecords}
 snippet fbc
 	/**
 	 * Config file for the $1 module.
@@ -233,7 +233,7 @@ snippet fbm
 		 * @param int $id
 		 */
 		public static function delete($id) {
-			BackendModel::getDB(true)->delete('$4', 'id = ?', (int) $id);
+			BackendModel::getContainer()->get('database')->delete('$4', 'id = ?', (int) $id);
 		}
 
 		/**
@@ -243,7 +243,7 @@ snippet fbm
 		 * @return bool
 		 */
 		public static function exists($id) {
-			return (bool) BackendModel::getDB()->getVar(
+			return (bool) BackendModel::getContainer()->get('database')->getVar(
 				'SELECT 1
 				 FROM $4 AS i
 				 WHERE i.id = ?',
@@ -258,7 +258,7 @@ snippet fbm
 		 * @return array
 		 */
 		public static function get($id) {
-			return (array) BackendModel::getDB()->getRecord(
+			return (array) BackendModel::getContainer()->get('database')->getRecord(
 				'SELECT i.*
 				 FROM $4 AS i
 				 WHERE i.id = ?',
@@ -277,7 +277,7 @@ snippet fbm
 			$URL = (string) $URL;
 
 			// get db
-			$db = BackendModel::getDB();
+			$db = BackendModel::getContainer()->get('database');
 
 			// new item
 			if ($id === null) {
@@ -321,7 +321,7 @@ snippet fbm
 		 * @return int
 		 */
 		public static function insert(array $${3:var}) {
-			return (int) BackendModel::getDB(true)->insert('${4:table}', $$3);
+			return (int) BackendModel::getContainer()->get('database')->insert('${4:table}', $$3);
 		}
 
 		/**
@@ -331,7 +331,7 @@ snippet fbm
 		 * @param array $$3
 		 */
 		public static function update($id, array $$3) {
-			BackendModel::getDB(true)->update('$4', $$3, 'id = ?', (int) $id);
+			BackendModel::getContainer()->get('database')->update('$4', $$3, 'id = ?', (int) $id);
 		}
 	}
 snippet fbi
@@ -405,7 +405,7 @@ snippet ffm
 		 * @return array
 		 */
 		public static function get($id) {
-			return (array) FrontendModel::getDB()->getRecord(
+			return (array) FrontendModel::getContainer()->get('database')->getRecord(
 				'SELECT i.*
 				 FROM ${3:table} AS i
 				 WHERE i.id = ?',
@@ -419,7 +419,7 @@ snippet ffm
 		 * @return array
 		 */
 		public static function getAll() {
-			return (array) FrontendModel::getDB()->getRecords(
+			return (array) FrontendModel::getContainer()->get('database')->getRecords(
 				'SELECT i.*
 				 FROM $3 AS i'
 			);
