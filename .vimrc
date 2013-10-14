@@ -123,3 +123,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|vendor)$',
     \ 'file': '\v\.(swp)$',
     \ }
+
+" ----- Bugfix -----
+
+set backspace=indent,eol,start    " Fix backspace for Vim 7.4.x
