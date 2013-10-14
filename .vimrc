@@ -1,41 +1,41 @@
 " ----- Defaults -----
 
-set nocompatible		" use Vim defaults.
+set nocompatible        " use Vim defaults.
 
 " ----- Pathogen -----
 
-call pathogen#infect()	" Pathogen must be called before filetype detection.
+call pathogen#infect()  " Pathogen must be called before filetype detection.
 filetype plugin indent on
 
 " ----- Text formatting -----
 
-set autoindent			" automatic indent new lines.
-set smartindent			" make it smart.
-set copyindent			" copy structure of existing lines.
-set cindent				" enable automatic C program indenting.
-set nowrap				" do not wrap lines.
-set shiftwidth=4		" use four characters for tabs.
-set softtabstop=4		" mindblowing.
-set tabstop=4			" skullcracking.
-set expandtab			" expand tabs to spaces.
+set autoindent          " automatic indent new lines.
+set smartindent         " make it smart.
+set copyindent          " copy structure of existing lines.
+set cindent             " enable automatic C program indenting.
+set nowrap              " do not wrap lines.
+set shiftwidth=4        " use four characters for tabs.
+set softtabstop=4       " mindblowing.
+set tabstop=4           " skullcracking.
+set expandtab           " expand tabs to spaces.
 
 " ----- UI settings -----
 
-set ruler				" always show cursor position.
-set showmode			" show the mode we're currently in.
-set showcmd				" always display commands.
-set showmatch			" highlight matching brackets/showbraces.
-set list				" enable listcharacters.
-set laststatus=2		" show status line.
-set cursorline			" visualize current line.
-set colorcolumn=80		" mark the 80 char column.
-set noerrorbells		" disable error bells.
-set visualbell			" disable error bells.
-set t_vb=				" disable error bells.
+set ruler               " always show cursor position.
+set showmode            " show the mode we're currently in.
+set showcmd             " always display commands.
+set showmatch           " highlight matching brackets/showbraces.
+set list                " enable listcharacters.
+set laststatus=2        " show status line.
+set cursorline          " visualize current line.
+set colorcolumn=80      " mark the 80 char column.
+set noerrorbells        " disable error bells.
+set visualbell          " disable error bells.
+set t_vb=               " disable error bells.
 
 " ----- File navigation -----
 
-set wildmenu			" display all possibilities on autocomplete.
+set wildmenu            " display all possibilities on autocomplete.
 set wildmode=longest,list,full
 
 " ----- Movement -----
@@ -66,20 +66,20 @@ nnoremap <c-l> <c-w>l
 
 " ----- Searching -----
 
-set ignorecase			" no case sensitivity please.
-set smartcase			" search case sensitive if i'm willing to.
-set incsearch			" do incremental search.
+set ignorecase          " no case sensitivity please.
+set smartcase           " search case sensitive if i'm willing to.
+set incsearch           " do incremental search.
 
 " ----- Syntax and such -----
 
-syntax on				" enable syntax highlighting.
-color twilight256		" use twilight256 colorscheme.
-set synmaxcol=512		" try highlighting maximum 512 columns.
+syntax on               " enable syntax highlighting.
+color twilight256       " use twilight256 colorscheme.
+set synmaxcol=512       " try highlighting maximum 512 columns.
 
 " ----- Formatting -----
 
-set fileformat=unix		" always use unix fileformat.
-set encoding=utf-8		" force UTF-8 encoding.
+set fileformat=unix     " always use unix fileformat.
+set encoding=utf-8      " force UTF-8 encoding.
 
 " ----- Custom mapping -----
 
@@ -91,7 +91,7 @@ map Y y$
 
 " ----- Remapping -----
 
-inoremap jj <ESC>		" leave insert mode with 'jj'
+inoremap jj <ESC>       " leave insert mode with 'jj'
 
 " ----- Chromed out, pimped out -----
 
@@ -124,6 +124,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(swp)$',
     \ }
 
-" ----- Bugfix -----
+" ----- Fixes -----
 
-set backspace=indent,eol,start    " Fix backspace for Vim 7.4.x
+" Allow backspace for everything.
+set backspace=indent,eol,start
