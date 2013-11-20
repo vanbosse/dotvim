@@ -32,6 +32,8 @@ set colorcolumn=80      " mark the 80 char column.
 set noerrorbells        " disable error bells.
 set visualbell          " disable error bells.
 set t_vb=               " disable error bells.
+set rnu                 " show relative line numbers.
+set number              " show current number instead of relative one.
 
 " ----- File navigation -----
 
