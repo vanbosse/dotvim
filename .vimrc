@@ -66,6 +66,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" ----- Leader -----
+
+" <C-]> opens tag in new tabs and focuses.
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+
 " ----- Searching -----
 
 set ignorecase          " no case sensitivity please.
