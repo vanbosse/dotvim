@@ -82,7 +82,8 @@ set incsearch           " do incremental search.
 " ----- Syntax and such -----
 
 syntax on               " enable syntax highlighting.
-color twilight256       " use twilight256 colorscheme.
+set background=dark     " use dark background.
+color solarized         " use solarized colorscheme.
 set synmaxcol=512       " try highlighting maximum 512 columns.
 
 " ----- Formatting -----
