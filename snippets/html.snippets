@@ -1,3 +1,24 @@
 # HTML snippets
 snippet url
 	<a href="${1:#}" title="$2">${2:link}</a>
+snippet html
+	<!DOCTYPE html>
+	<html lang="${1:en}">
+	<head>
+		<title>${2:title}</title>
+
+		<meta charset="${3:utf-8}">
+	</head>
+
+	<body>
+		${4:<h1>It Vurks!</h1>}
+	</body>
+	</html>
+snippet script
+	<script type="text/javascript">
+		${1}
+	</script>
+snippet scriptsrc
+	<script type="text/javascript" src="${1:/js/app.js}"></script>
+snippet link
+	<link rel="${1:stylesheet}" type="text/css" href="${2:/css/screen.css}">
