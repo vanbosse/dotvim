@@ -34,6 +34,7 @@ set visualbell          " disable error bells.
 set t_vb=               " disable error bells.
 set rnu                 " show relative line numbers.
 set number              " show current number instead of relative one.
+set nofoldenable        " do not fold sections.
 
 " ----- File navigation -----
 
