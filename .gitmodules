@@ -7,3 +7,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/php-documentor"]
+	path = bundle/php-documentor
+	url = https://github.com/sumpygump/php-documentor-vim
