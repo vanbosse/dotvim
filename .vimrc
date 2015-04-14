@@ -74,6 +74,10 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <silent><Leader>rs :!clear && bundle exec rake sync<cr>
 nnoremap <silent><Leader>l :!clear && php -l %<cr>
 
+au BufRead,BufNewFile *.php inoremap <buffer> <silent><Leader>d :call PhpDoc()<cr>
+au BufRead,BufNewFile *.php nnoremap <buffer> <silent><Leader>d :call PhpDoc()<cr>
+au BufRead,BufNewFile *.php vnoremap <buffer> <silent><Leader>d :call PhpDocRange()<cr>
+
 " ----- Searching -----
 
 set ignorecase          " no case sensitivity please.
@@ -134,6 +138,9 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|vendor|code-coverage)$',
     \ 'file': '\v\.(swp)$',
     \ }
+
+let g:pdv_cfg_Author = 'Jeroen Van den Bossche <name@example.com>'
+let g:pdv_cfg_ClassTags = ["author"]
 
 " ----- Fixes -----
 
