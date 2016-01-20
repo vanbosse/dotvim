@@ -123,7 +123,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " custom statusline
-set statusline=%<%f\ %m%r\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ %#warningmsg#%{SyntasticStatuslineFlag()}%*"
+set statusline=%<%f\ %m%r\ %=line\ %l\ of\ %L\ %15.15(col\ %c%V%)\ %25.25(%{&ff},%{strlen(&fenc)?&fenc:'none'}\ %y%)\ "
 
 " .tpl files are mainly (x)html files, xhtml gives better omni completion.
 autocmd BufNewFile,BufRead *.tpl set filetype=xhtml
@@ -139,13 +139,15 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(swp)$',
     \ }
 
-let g:pdv_cfg_Author = 'Jeroen Van den Bossche <name@example.com>'
-let g:pdv_cfg_ClassTags = ["author"]
-
+" Syntastic settings.
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+
+" Vim PHP refactor command.
+let g:php_refactor_command='/usr/local/bin/refactor'
 
 " ----- Fixes -----
 
