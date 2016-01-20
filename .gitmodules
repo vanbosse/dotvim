@@ -10,3 +10,6 @@
 [submodule "bundle/php-documentor"]
 	path = bundle/php-documentor
 	url = https://github.com/sumpygump/php-documentor-vim
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
