@@ -10,3 +10,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/vim-php-refactoring"]
+	path = bundle/vim-php-refactoring
+	url = https://github.com/vim-php/vim-php-refactoring.git
