@@ -13,3 +13,6 @@
 [submodule "bundle/vim-php-refactoring"]
 	path = bundle/vim-php-refactoring
 	url = https://github.com/vim-php/vim-php-refactoring.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git

@@ -72,7 +72,6 @@ nnoremap <c-l> <c-w>l
 " <C-]> opens tag in new tabs and focuses.
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <silent><Leader>rs :!clear && bundle exec rake sync<cr>
-nnoremap <silent><Leader>l :!clear && php -l %<cr>
 
 au BufRead,BufNewFile *.php inoremap <buffer> <silent><Leader>d :call PhpDoc()<cr>
 au BufRead,BufNewFile *.php nnoremap <buffer> <silent><Leader>d :call PhpDoc()<cr>
