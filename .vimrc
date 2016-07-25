@@ -131,7 +131,7 @@ let g:snippets_dir = "~/.vim/snippets"
 
 " CtrlP ignores.
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|vendor|code-coverage)$',
+    \ 'dir':  '\v[\/](\.git|vendor|code-coverage|node_modules)$',
     \ 'file': '\v\.(swp)$',
     \ }
 
