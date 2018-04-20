@@ -71,10 +71,7 @@ nnoremap <c-l> <c-w>l
 
 " <C-]> opens tag in new tabs and focuses.
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
-nnoremap <silent><Leader>rs :!clear && bundle exec rake sync<CR>
-nnoremap <silent><Leader>tt :TagbarToggle<CR>
 nnoremap <silent><Leader>n :NERDTreeToggle<CR>
-
 
 " ----- Searching -----
 
@@ -144,9 +141,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
-
-" Vim PHP refactor command.
-let g:php_refactor_command='/usr/local/bin/refactor'
 
 " ----- Fixes -----
 
