@@ -1,0 +1,46 @@
+snippet rfc
+	import React from 'react';
+
+	const ${1:Component} = ({ ${2:props} }) => {
+		return (
+			<h1>$1</h1>
+		);
+	};
+
+	export default $1;
+snippet rc
+	import React, { Component } from 'react';
+
+	class ${1:Component} extends Component {
+		render = () => {
+			return (
+				<h1>$1</h1>
+			);
+		}
+	}
+
+	export default $1;
+snippet rrc
+	import React, { Component } from 'react';
+	import { bindActionCreators } from 'redux';
+	import { connect } from 'react-redux';
+
+	class ${1:Component} extends Component {
+		render = () => {
+			return (
+				<h1>$1</h1>
+			);
+		}
+	}
+
+	const mapStateToProps = (state) => {
+		return {
+
+		};
+	};
+
+	const mapDispatchToProps = (dispatch) => {
+		return bindActionCreators({ }, dispatch);
+	};
+
+	export default connect(mapStateToProps, mapDispatchToProps)($1);
